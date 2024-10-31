@@ -1,16 +1,14 @@
 // dH 10/3/24
 // zooVersion01.java
-//
-package dennis.zoo.com;
+// revised 10/31/24
+
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static dennis.zoo.com.Utilities.calcAnimalBirthDate;
-
 public class App {
-
 
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
@@ -50,14 +48,10 @@ public class App {
             System.out.println(bearName);
         }
 
-
-
-
         BufferedReader reader = null;
 
         String aniSex;
         String aniSpecies;
-
 
         try {
             // Create a BufferedReader to read the file
@@ -88,6 +82,7 @@ public class App {
                 aniOrigin01 = arrayOfStrPartsOnComma[4];
                 aniOrigin02 = arrayOfStrPartsOnComma[5];
 
+
                 System.out.println();
                 String[] arrayOfStrPartsOnSpace = arrayOfStrPartsOnComma[0].split(" ");
                 elementNum = 0;
@@ -95,6 +90,19 @@ public class App {
                     System.out.println("Element " + elementNum + " of arrayOfStrPartsOnSpace is: " + thePart);
                     elementNum++;
                 }
+                // Get animal's sex and species and age
+                aniAge = arrayOfStrPartsOnSpace[0];
+                // make this an int.
+                int intAniAge = Integer.parseInt(aniAge);
+                aniSex = arrayOfStrPartsOnSpace[3];
+                aniSpecies = arrayOfStrPartsOnSpace[4];
+                System.out.println("\n The animal's sex is " + aniSex);
+                System.out.println("\n The species is " + aniSpecies);
+                System.out.println("\n The color is " + aniColor);
+                System.out.println("\n The weight is " + aniWeight);
+                System.out.println("\n Origin01 is " + aniOrigin01);
+                System.out.println("\n Origin02 is " + aniOrigin02);
+
                 System.out.println();
 
                 String[] arrayOfStrPartsOnSpace02 = arrayOfStrPartsOnComma[1].split(" ");
@@ -103,19 +111,6 @@ public class App {
                     System.out.println("Element " + elementNum + " of arrayOfStrPartsOnSpace02 is: " + thePart);
                     elementNum++;
                 }
-                // Get animal's sex and species and age.
-                aniAge = arrayOfStrPartsOnSpace[0];
-                // make this an int
-                int intAniAge = Integer;
-                aniSex = arrayOfStrPartsOnSpace[3];
-                aniSpecies = arrayOfStrPartsOnSpace[4];
-                System.out.println("\n The animal's sex is " + aniSex);
-                System.out.println("\n The species is " + aniSpecies);
-                System.out.println("\n The color is " + aniColor);
-                System.out.println("\n The weight is " + aniWeight);
-                System.out.println("\n The origin01 is " + aniOrigin01);
-                System.out.println("\n The origin02 is " + aniOrigin02);
-
                 System.out.println();
 
                 String ageInYears = arrayOfStrPartsOnSpace[0];
@@ -126,13 +121,12 @@ public class App {
                 // Create the right animal object for this arriving animal.
                 if (aniSpecies.equals("hyena")) {
                     System.out.println("\n The animal is a hyena!");
-                    //Create a hyena object and attach to the hyena ArrayList;
+                    // Create a hyena object and attach to the hyena ArrayList;
                     Hyena hyena = new Hyena(aniSex, intAniAge, 99, "to be named",
                             "animalID", "animalBirthDate", aniColor,
                             aniOrigin01 + aniOrigin02);
+                    System.out.println(" The new hyena's color is :" + hyena.getAnimalColor());
                 }
-
-                System.out.println("The new hyena's color is " + hyena.getAnimalColor);
 
 
                 // this is a unit test - we are testing the Animal constructor we just created
